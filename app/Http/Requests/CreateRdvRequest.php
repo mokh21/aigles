@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\Http\Requests\CreateClientRequest;
 
-class CreateArticleRequest extends Request
+class CreateRdvRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +23,12 @@ class CreateArticleRequest extends Request
      */
     public function rules()
     {
-        return [
-
-           $this->validate($request, [
-        'prix' => 'required|numeric',
-           'surface' => 'required',
-           'type' => 'required',
-    ]);
-           
-            
+        return ['id_client' => 'unique:rdv|required',
+            'nom_client' => 'required',
+            'email_client' => 'unique:rdv|required',
+            'num_client' => 'unique:rdv|required',
+            'date_rdv' => 'unique:rdv|required',
+            'heure_rdv' => 'unique:rdv|required'
         ];
     }
 }

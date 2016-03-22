@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
-use App\Http\Requests\CreateClientRequest;
 
-class CreateArticleRequest extends Request
+class CreateClientRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,14 +24,7 @@ class CreateArticleRequest extends Request
     public function rules()
     {
         return [
-
-           $this->validate($request, [
-        'prix' => 'required|numeric',
-           'surface' => 'required',
-           'type' => 'required',
-    ]);
-           
-            
+            //
         ];
     }
 }

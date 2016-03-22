@@ -47,10 +47,7 @@ public function edit($id)
 }
 
 public function update($id, CreateUtilisateursRequest $request)
-{
-    
-    
-    
+{    
 
 $user = User::findOrfail($id);
   
@@ -65,6 +62,32 @@ $user = User::findOrfail($id);
 	$user->update($request->all());
 	return ('succées');*/
 }
+
+
+function create()
+    {
+ return view('AjoutCl');
+  //return ("Insertion Avec Succés");
+    }
+
+
+//Ajout/Inscription Des Clients
+ protected function store(CreateUserRequest $request)
+{
+    
+$user = new User;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role='Client';
+        $user->password = bcrypt($request->password);
+        $user->save();
+        $mail=$request->email;
+        $name=$request->name;
+        Mail::send('mailwelcome', ['Name' => 'aigles'], function($message)
+        {
+          $message->to('johuragiga@walkmail.ru', 'mokhtar')->from('lesaiglesarabes@gmail.com')->subject('welcome');
+        });
 
 
 }
