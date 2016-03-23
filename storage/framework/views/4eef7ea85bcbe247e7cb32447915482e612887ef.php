@@ -1,3 +1,5 @@
+<h1 align="center"> Liste Des Produits </h1>
+
 
 <?php foreach($produit as $p): ?>
 <li>ID : <?php echo e($p->id); ?></li>

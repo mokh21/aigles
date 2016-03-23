@@ -1,3 +1,5 @@
+<h1 align="center"> Liste Des Produits </h1>
+
 
 @foreach($produit as $p)
 <li>ID : {{ $p->id }}</li>

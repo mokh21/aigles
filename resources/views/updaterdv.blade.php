@@ -1,5 +1,5 @@
-{!! Form::open(array('url' => 'rdv')) !!}
-	<ul>
+{!! Form::model($rdvs, ['method' => 'PATCH', 'action' => ['RdvController@update', $rdvs->id]]) !!}
+<ul>
 		<li>
 			{!! Form::label('id_client', 'Id_client:') !!}
 			{!! Form::text('id_client') !!}
@@ -24,20 +24,17 @@
 			{!! Form::label('date_rdv', 'Date_rdv:') !!}
 			{!! Form::text('date_rdv') !!} 
 		</li>
-		<a href="http://localhost/laravelapp/public/daterdv">Afficher</a>
 		<br>
 		<li>
 			{!! Form::label('heure_rdv', 'Heure_rdv:') !!}
 			{!! Form::text('heure_rdv') !!}
 		</li>
 		<br>
-		<li>
-			{!! Form::submit() !!}
-		</li>
-	</ul>
+		</ul>
+	{!! Form::submit('modifier'); !!}
+
+
 {!! Form::close() !!}
-
-
 @if ($errors->any())
 <ul class="alert alert-danger">
 @foreach ($errors->all() as $error)

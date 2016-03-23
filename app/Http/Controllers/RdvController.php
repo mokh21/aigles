@@ -20,7 +20,14 @@ class RdvController extends Controller {
    */
   public function index()
   {
-    
+    $rdvs = Rdv::all();
+
+        return view('showrdv', ['rdvs' => $rdvs]);
+
+    /*$rdvs = Rdv::paginate(2);
+
+        return view('showrdv', ['produit' => $rdvs]); 
+        */
   }
 
   /**
@@ -55,7 +62,9 @@ class RdvController extends Controller {
    */
   public function show($id)
   {
-    
+   $rdvs = Rdv::findOrfail($id);
+
+        return view('showsrdv', ['rdvs' => $rdvs]);
   }
 
   /**
@@ -66,7 +75,8 @@ class RdvController extends Controller {
    */
   public function edit($id)
   {
-    
+$rdvs = Rdv::findOrfail($id);
+  return view('updaterdv', ['rdvs' => $rdvs]);
   }
 
   /**
@@ -75,9 +85,12 @@ class RdvController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($id, Request $request)
   {
-    
+ 
+  $rdvs = Rdv::findOrfail($id);
+  $rdvs->update($request->all());
+  return ('succées');
   }
 
   /**
@@ -88,16 +101,17 @@ class RdvController extends Controller {
    */
   public function destroy($id)
   {
-    
+  $rdvs = Rdv::findOrfail($id);
+$rdvs->delete();
+return("Suppression Avec Succés");  
   }
   
-  public function showrdv()
+  public function showdaterdv()
   {
-    $date_rdv = Rdv::findOrfail($date_rdv);
-    return view('showrdv', ['showrdv' => $date_rdv]);
+    $date = Rdv::all();
+    return view('showdaterdv', ['date' => $date]);
   }
 
 
 }
 
-?>

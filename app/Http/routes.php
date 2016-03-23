@@ -29,13 +29,12 @@ Route::get('effacer/{id}', 'ProduitsController@destroy');
    
 
 Route::group(['middleware' => ['web']], function () {
-    Route::resource('produits', 'ProduitsController');
-    
+    Route::resource('produits', 'ProduitsController');    
     Route::resource('utilisateurs', 'UserController');
     Route::resource('client', 'ClientController');
     Route::resource('rdv', 'RdvController');
     Route::auth();
-    Route::get('showrdv', 'RdvController@showrdv');
+    Route::get('daterdv', 'RdvController@showdaterdv');
 
 Route::get('/home', 'HomeController@index');
 });
@@ -45,7 +44,7 @@ Route::get('/home', 'HomeController@index');
 
 
 
-Route::group(['middleware' => 'web'], function () {
+/*Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/home', 'HomeController@index');
 });
