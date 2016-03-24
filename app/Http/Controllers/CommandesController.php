@@ -53,7 +53,9 @@ class CommandesController extends Controller {
    */
   public function show($id)
   {
-    
+   $cmds = Commandes::findOrfail($id);
+
+        return view('showcmd', ['cmds' => $cmds]); 
   }
 
   /**
@@ -64,7 +66,8 @@ class CommandesController extends Controller {
    */
   public function edit($id)
   {
-    
+   $cmds = Commandes::findOrfail($id);
+  return view('updatecmd', ['cmds' => $cmds]); 
   }
 
   /**
@@ -73,9 +76,11 @@ class CommandesController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  public function update($id, Request $request)
   {
-    
+      $cmds = Commandes::findOrfail($id);
+  $cmds->update($request->all());
+  return ('succées');
   }
 
   /**
@@ -86,7 +91,9 @@ class CommandesController extends Controller {
    */
   public function destroy($id)
   {
-    
+    $cmds = Commandes::findOrfail($id);
+$cmds->delete();
+return("Suppression Avec Succés");
   }
   
 }
