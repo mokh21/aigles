@@ -1,16 +1,15 @@
-<?php 
+<?php
 namespace App\Http\Controllers;
-use App\Rdv;
+use App\Admins;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 //use Request;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Illuminate\Pagination\LengthAwarePaginator;
-use App\Http\Requests\CreateRdvRequest;
+use App\Http\Requests\CreateAdminsRequest;
 
-
-class RdvController extends Controller {
+class AdminsController extends Controller {
 
   /**
    * Display a listing of the resource.
@@ -19,14 +18,9 @@ class RdvController extends Controller {
    */
   public function index()
   {
-    $rdvs = Rdv::all();
+    $adms = Admins::all();
 
-        return view('showrdv', ['rdvs' => $rdvs]);
-
-    /*$rdvs = Rdv::paginate(2);
-
-        return view('showrdv', ['produit' => $rdvs]); 
-        */
+        return view('showadm', ['adms' => $adms]);
   }
 
   /**
@@ -35,9 +29,9 @@ class RdvController extends Controller {
    * @return Response
    */
   public function create()
-  { 
-    $rdv = Rdv::all();
-    return view('rdv', ['rdv' => $rdv]);
+  {
+
+    return view('admins');
 
   }
 
@@ -46,11 +40,21 @@ class RdvController extends Controller {
    *
    * @return Response
    */
-  public function store(CreateRdvRequest $request)
+  public function store(CreateAdminsRequest $request)
   {
-    Rdv::create($request->all());
- return ("Insertion Avec Succés");
+    //Admins::create($request->all());
+    
+    $user = new Admins;
 
+        $user->nom = $request->nom;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->num_tel = $request->num_tel;
+        $user->adresse = $request->adresse;
+        $user->save();
+       
+
+ return ("Insertion Avec Succés");
   }
 
   /**
@@ -61,9 +65,9 @@ class RdvController extends Controller {
    */
   public function show($id)
   {
-   $rdvs = Rdv::findOrfail($id);
+      $adms = Admins::findOrfail($id);
 
-        return view('showsrdv', ['rdvs' => $rdvs]);
+        return view('showsadm', ['adms' => $adms]);
   }
 
   /**
@@ -74,8 +78,8 @@ class RdvController extends Controller {
    */
   public function edit($id)
   {
-$rdvs = Rdv::findOrfail($id);
-  return view('updaterdv', ['rdvs' => $rdvs]);
+    $adms = Admins::findOrfail($id);
+  return view('updateadm', ['adms' => $adms]);
   }
 
   /**
@@ -86,9 +90,8 @@ $rdvs = Rdv::findOrfail($id);
    */
   public function update($id, Request $request)
   {
- 
-  $rdvs = Rdv::findOrfail($id);
-  $rdvs->update($request->all());
+    $adms = Admins::findOrfail($id);
+  $adms->update($request->all());
   return ('succées');
   }
 
@@ -100,17 +103,11 @@ $rdvs = Rdv::findOrfail($id);
    */
   public function destroy($id)
   {
-  $rdvs = Rdv::findOrfail($id);
-$rdvs->delete();
-return("Suppression Avec Succés");  
+    $adms = Admins::findOrfail($id);
+$adms->delete();
+return("Suppression Avec Succés");
   }
   
-  public function showdaterdv()
-  {
-    $date = Rdv::all();
-    return view('showdaterdv', ['date' => $date]);
-  }
-
-
 }
 
+?>

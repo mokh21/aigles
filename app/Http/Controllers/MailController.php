@@ -1,6 +1,8 @@
 <?php 
+
+
 namespace App\Http\Controllers;
-use App\Rdv;
+use App\Mail;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 //use Request;
@@ -9,8 +11,7 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Http\Requests\CreateRdvRequest;
 
-
-class RdvController extends Controller {
+class MailController extends Controller {
 
   /**
    * Display a listing of the resource.
@@ -19,14 +20,7 @@ class RdvController extends Controller {
    */
   public function index()
   {
-    $rdvs = Rdv::all();
-
-        return view('showrdv', ['rdvs' => $rdvs]);
-
-    /*$rdvs = Rdv::paginate(2);
-
-        return view('showrdv', ['produit' => $rdvs]); 
-        */
+    
   }
 
   /**
@@ -35,10 +29,15 @@ class RdvController extends Controller {
    * @return Response
    */
   public function create()
-  { 
-    $rdv = Rdv::all();
-    return view('rdv', ['rdv' => $rdv]);
+  {
+    $user = new Mail;
 
+        $user->nom = $request->nom;
+        $user->sujet = $request->sujet;
+        $user->contenu = $request->contenu;
+        $user->num_tel = $request->num_tel;
+        $user->adresse = $request->adresse;
+        $user->save();
   }
 
   /**
@@ -46,11 +45,9 @@ class RdvController extends Controller {
    *
    * @return Response
    */
-  public function store(CreateRdvRequest $request)
+  public function store()
   {
-    Rdv::create($request->all());
- return ("Insertion Avec Succés");
-
+    return view('mail');
   }
 
   /**
@@ -61,9 +58,7 @@ class RdvController extends Controller {
    */
   public function show($id)
   {
-   $rdvs = Rdv::findOrfail($id);
-
-        return view('showsrdv', ['rdvs' => $rdvs]);
+    
   }
 
   /**
@@ -74,8 +69,7 @@ class RdvController extends Controller {
    */
   public function edit($id)
   {
-$rdvs = Rdv::findOrfail($id);
-  return view('updaterdv', ['rdvs' => $rdvs]);
+    
   }
 
   /**
@@ -84,12 +78,9 @@ $rdvs = Rdv::findOrfail($id);
    * @param  int  $id
    * @return Response
    */
-  public function update($id, Request $request)
+  public function update($id)
   {
- 
-  $rdvs = Rdv::findOrfail($id);
-  $rdvs->update($request->all());
-  return ('succées');
+    
   }
 
   /**
@@ -100,17 +91,9 @@ $rdvs = Rdv::findOrfail($id);
    */
   public function destroy($id)
   {
-  $rdvs = Rdv::findOrfail($id);
-$rdvs->delete();
-return("Suppression Avec Succés");  
+    
   }
   
-  public function showdaterdv()
-  {
-    $date = Rdv::all();
-    return view('showdaterdv', ['date' => $date]);
-  }
-
-
 }
 
+?>

@@ -35,6 +35,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('rdv', 'RdvController');
     Route::auth();
     Route::get('daterdv', 'RdvController@showdaterdv');
+    Route::resource('admins', 'AdminsController');
+    Route::get('sendmail', 'MailController@create');
 
 Route::get('/home', 'HomeController@index');
 });
