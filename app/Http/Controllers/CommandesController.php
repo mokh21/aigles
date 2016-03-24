@@ -1,8 +1,6 @@
 <?php 
-
-
 namespace App\Http\Controllers;
-use App\Mail;
+use App\Commandes;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 //use Request;
@@ -12,7 +10,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use App\Http\Requests\CreateRdvRequest;
 use Carbon\Carbon;
 
-class MailController extends Controller {
+class CommandesController extends Controller {
 
   /**
    * Display a listing of the resource.
@@ -21,9 +19,9 @@ class MailController extends Controller {
    */
   public function index()
   {
-    $mails = Mail::all();
+    $cmds = Commandes::all();
 
-        return view('showmails', ['mails' => $mails]);
+        return view('showcmd', ['cmds' => $cmds]);
   }
 
   /**
@@ -33,7 +31,7 @@ class MailController extends Controller {
    */
   public function create()
   {
-    return view('mail');
+    return view('commandes');
   }
 
   /**
@@ -43,15 +41,8 @@ class MailController extends Controller {
    */
   public function store(Request $request)
   {
-    $user = new Mail;
-
-        $user->nom = $request->nom;
-        $user->sujet = $request->sujet;
-        $user->contenu = $request->contenu;
-        $user->date_mail = Carbon::now();
-        $user->heure_mail = Carbon::now('GMT+1');
-        $user->save();
-    return("success");
+    Commandes::create($request->all());
+ return ("Insertion Avec Succés");
   }
 
   /**

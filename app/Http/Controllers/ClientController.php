@@ -36,10 +36,10 @@ $user = new User;
         $user->save();
         $mail=$request->email;
         $name=$request->name;
-        Mail::send('mailwelcome', ['Name' => 'aigles'], function($message)
+        /*Mail::send('mailwelcome', ['Name' => 'aigles'], function($message)
         {
         	$message->to('johuragiga@walkmail.ru', 'mokhtar')->from('lesaiglesarabes@gmail.com')->subject('welcome');
-        });
+        });*/
 
 //User::create($request->all());
 //return('welcome');

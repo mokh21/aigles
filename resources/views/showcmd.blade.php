@@ -1,0 +1,6 @@
+@foreach($cmds as $c)
+<ul>ID : {{ $c->id }}</ul>
+<li>ID Du Client : {{ $c->id_client }}</li>
+<li>code_type : {{ $c->code_type }}</li>
+<li>Dossier: {{ $c->dossier }}</li>
+@endforeach
