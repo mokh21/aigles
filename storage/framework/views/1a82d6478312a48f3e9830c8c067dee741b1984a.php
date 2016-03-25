@@ -2,17 +2,17 @@
 
 
 <html> Prix </html>
-<?php echo Form::number('prix');; ?>
+<?php echo Form::number('prix', 'value');; ?>
 
 <html> <br><br> </html>
 
 <html> Surface </html>
-<?php echo Form::number('surface');; ?>
+<?php echo Form::number('surface', 'value');; ?>
 
 <html> <br><br> </html>
 
 <html> Type </html>
-<?php echo Form::text('type');; ?>
+<?php echo Form::select('type', array('s+1' => 's+1', 's+2' => 's+2', 's+3' => 's+3', 's+4' => 's+4', 'Bureau Commercial' => 'Bureau Commercial' ));; ?>
 
 <html> <br><br> </html>
 
@@ -32,12 +32,17 @@
 <html> <br><br> </html>
 
 <html> Url De L'image </html>
-<?php echo Form::text('image');; ?>
+<?php echo Form::file('image');; ?>
 
 <html> <br><br> </html>
 
 <html> Url Du Visite Virtuelle </html>
 <?php echo Form::text('visite_virtuelle');; ?>
+
+<html> <br><br> </html>
+
+<html> Résidence </html>
+<?php echo Form::text('residence');; ?>
 
 <html> <br><br> </html>
 

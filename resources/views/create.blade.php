@@ -11,7 +11,7 @@
 <html> <br><br> </html>
 
 <html> Type </html>
-{!!  Form::text('type'); !!}
+{!!  Form::select('type', array('s+1' => 's+1', 's+2' => 's+2', 's+3' => 's+3', 's+4' => 's+4', 'Bureau Commercial' => 'Bureau Commercial' )); !!}
 <html> <br><br> </html>
 
 <html> Localité </html>
@@ -27,12 +27,21 @@
 <html> <br><br> </html>
 
 <html> Url De L'image </html>
-{!!  Form::text('image'); !!}
+{!!  Form::file('image'); !!}
 <html> <br><br> </html>
 
 <html> Url Du Visite Virtuelle </html>
 {!!  Form::text('visite_virtuelle'); !!}
 <html> <br><br> </html>
+
+<html> Résidence : </html>
+
+{{ Form::select('category', $n) }}
+
+
+
+
+
 
 {!! Form::submit('Envoyer'); !!}
 

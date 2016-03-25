@@ -28,7 +28,10 @@ class CreateProduitsRequest extends Request
         
         'prix' => 'required|min:3',
            'surface' => 'required',
-           'type' => 'required'
+           'type' => 'required',
+           'localite' => 'required',
+           'code_p' => 'required',
+           'residence' => 'required'
     ];
            
     }

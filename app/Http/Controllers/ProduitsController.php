@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Produits;
+use App\Residence;
 use App\Http\Requests;
 //use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,16 +14,20 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\MessageBag;
 use Request;
 use App\Http\Requests\CreateProduitsRequest;
-
+use View;
 
 class ProduitsController extends Controller
 {
     
 
  function create()
+ { 
+  
 
-{
- return view('create');
+
+  $n = Residence::all('nom')->toArray();
+  return  View('create',compact('n'));
+ //return View::make('create')->with('n',$n);
 	//return ("Insertion Avec Succés");
     }
 

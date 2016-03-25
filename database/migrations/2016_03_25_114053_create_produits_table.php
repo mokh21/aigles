@@ -15,9 +15,10 @@ class CreateProduitsTable extends Migration {
 			$table->string('type', 3);
 			$table->text('localite');
 			$table->string('description', 50);
-			$table->text('code-p');
+			$table->text('code_p');
 			$table->text('image');
 			$table->text('visite_virtuelle');
+			$table->text('residence');
 		});
 	}
 

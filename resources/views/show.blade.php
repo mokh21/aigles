@@ -8,3 +8,4 @@
 <p>code_p : {{ $produit->code_p }}</p>
 <p>image : {{ $produit->image }}</p>
 <p>visite virtuelle : {{ $produit->visite_virtuelle}}</p>
+<p>residence : {{ $produit->residence }}</p>

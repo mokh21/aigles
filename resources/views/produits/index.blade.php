@@ -10,7 +10,8 @@
 <p>description : {{ $p->description }}</p>
 <p>code_p : {{ $p->code_p }}</p>
 <p>image : {{ $p->image }}</p>
-<p>visite virtuelle : {{ $p->visite_virtuelle}}</p>
+<p>visite virtuelle : {{ $p->visite_virtuelle }}</p>
+<p>Résidence : {{ $p->residence }}</p>
 
 
 {{ Form::open(['method' => 'GET' , 'action' => ['ProduitsController@show' , $p->id]]) }}

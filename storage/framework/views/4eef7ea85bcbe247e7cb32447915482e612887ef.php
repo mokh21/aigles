@@ -11,6 +11,7 @@
 <p>code_p : <?php echo e($p->code_p); ?></p>
 <p>image : <?php echo e($p->image); ?></p>
 <p>visite virtuelle : <?php echo e($p->visite_virtuelle); ?></p>
+<p>Résidence : <?php echo e($p->residence); ?></p>
 
 
 <?php echo e(Form::open(['method' => 'GET' , 'action' => ['ProduitsController@show' , $p->id]])); ?>

@@ -9,6 +9,6 @@ class Produits extends Model {
 	protected $table = 'produits';
 	public $timestamps = true;
 	protected $fillable = [
-  'prix', 'surface', 'type', 'localite', 'description', 'code_p', 'image', 'visite_virtuelle' ];
+  'prix', 'surface', 'type', 'localite', 'description', 'code_p', 'image', 'visite_virtuelle', 'residence' ];
 
 }

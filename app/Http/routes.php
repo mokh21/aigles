@@ -38,7 +38,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('admins', 'AdminsController');
     Route::resource('mail', 'MailController');
     Route::resource('commandes', 'CommandesController');
-
+    Route::resource('product', 'ProductController');
+    Route::resource('residence', 'ResidenceController');
 Route::get('/home', 'HomeController@index');
 });
     
