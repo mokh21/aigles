@@ -7,9 +7,5 @@
 <p>description : <?php echo e($produit->description); ?></p>
 <p>code_p : <?php echo e($produit->code_p); ?></p>
 <p>image : <?php echo e($produit->image); ?></p>
-<img src="<?php echo e($produit->image); ?>">
-<?php echo e(HTML::image({ $produit->image })); ?>
-
-
 <p>visite virtuelle : <?php echo e($produit->visite_virtuelle); ?></p>
 <p>residence : <?php echo e($produit->residence); ?></p>

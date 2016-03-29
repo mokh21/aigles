@@ -1,4 +1,4 @@
-<?php echo Form::open(array('url' => 'client')); ?>
+<?php echo Form::open(array('url' => 'utilisateurs')); ?>
 
 
 <html> Nom </html>
