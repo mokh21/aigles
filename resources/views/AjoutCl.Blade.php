@@ -1,4 +1,4 @@
-{!! Form::open(array('url' => 'client')) !!}
+{!! Form::open(array('url' => 'utilisateurs')) !!}
 
 <html> Nom </html>
 {!! Form::text('name'); !!}

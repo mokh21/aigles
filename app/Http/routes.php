@@ -47,8 +47,11 @@ Route::get('/home', 'HomeController@index');
 
 
 
+<<<<<<< HEAD
 
 /*Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::get('/home', 'HomeController@index');
 });*/
+=======
+>>>>>>> 940f5f2ba49ad00a57c54bfc14c2c55d26f614d7

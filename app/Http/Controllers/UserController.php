@@ -11,8 +11,9 @@ use App\Http\Controllers\Controller;
 use Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
-use App\Http\Requests\CreateUtilisateursRequest;
+use App\Http\Requests\CreateUserRequest;
 use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class UserController extends Controller
 {
@@ -68,6 +69,7 @@ function create()
     {
  return view('AjoutCl');
   //return ("Insertion Avec Succés");
+ return redirect()->action('UserController@show');
     }
 
 
@@ -79,7 +81,7 @@ $user = new User;
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->role = $request->role='Client';
+        $user->type = $request->role='Client';
         $user->password = bcrypt($request->password);
         $user->save();
         $mail=$request->email;
@@ -88,7 +90,6 @@ $user = new User;
         {
           $message->to('johuragiga@walkmail.ru', 'mokhtar')->from('lesaiglesarabes@gmail.com')->subject('welcome');
         });
-
 */
 }
 }
