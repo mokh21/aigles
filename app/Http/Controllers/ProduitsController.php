@@ -26,8 +26,8 @@ class ProduitsController extends Controller
 
 
   $n = Residence::all('nom')->toArray();
-  return  View('create',compact('n'));
- //return View::make('create')->with('n',$n);
+ // return  View('create',compact('n'));
+ return View::make('create')->with('n',$n);
 	//return ("Insertion Avec Succés");
     }
 
